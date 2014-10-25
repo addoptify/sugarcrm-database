@@ -12,5 +12,10 @@
     "require": {
 
     },
-    "repositories": []
+    "repositories": [
+        {
+            "type": "composer",
+            "url":  "http://dev.packages.dricrm.com/"
+        }
+    ]
 }
