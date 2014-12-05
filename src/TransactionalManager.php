@@ -36,4 +36,14 @@ interface TransactionalManager
      */
     public function isAutocommitEnabled();
 
+    /**
+     * @return bool
+     */
+    public function commit();
+
+    /**
+     * @return bool
+     */
+    public function rollback();
+
 }
