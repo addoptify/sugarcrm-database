@@ -99,7 +99,7 @@ class TransactionManager
      * @param string $event
      * @param \Exception $exception
      */
-    public function handleException($event, \Exception $exception)
+    public function handleException($event, $exception)
     {
         self::$success = false;
         self::$exceptions[] = $exception;
