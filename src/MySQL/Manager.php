@@ -24,7 +24,7 @@ class Manager extends \MysqliManager implements TransactionalManager
      *
      * @see ManagerUtils::registerError
      */
-    protected function registerError($userMessage, $message, $dieOnError = false)
+    public function registerError($userMessage, $message, $dieOnError = false)
     {
         ManagerUtils::registerError($userMessage, $message, $dieOnError);
     }
