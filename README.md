@@ -1,7 +1,7 @@
 Info
 ---------------------------------
 
-Enhanced database management for SugarCRM
+Enhanced database management for SugarCRM <=7.2
 
 Author: Emil Kilhage <emil.kilhage@dri-nordic.com>
 
