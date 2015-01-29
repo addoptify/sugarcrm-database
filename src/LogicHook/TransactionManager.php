@@ -6,6 +6,10 @@ use DRI\SugarCRM\Component\Database\Exception;
 use \DRI\SugarCRM\Component\Database\TransactionalManager;
 
 /**
+ * Experimenal logic hook, use with care!
+ *
+ * Read README.md
+ *
  * @author Emil Kilhage
  */
 class TransactionManager

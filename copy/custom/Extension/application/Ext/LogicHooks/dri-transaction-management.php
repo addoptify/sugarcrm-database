@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * Experimenal logic hook, use with care!
+ *
+ * Read README.md
+ *
  * @author Emil Kilhage, DRI Nordic <emil.kilhage@dri-nordic.com>
  */
 
