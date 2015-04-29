@@ -7,30 +7,29 @@ namespace DRI\SugarCRM\Component\Database;
  */
 interface TransactionalManager
 {
-
     /**
-     * Start a Transaction
+     * Start a Transaction.
      *
      * @return mixed
      */
     public function beginTransaction();
 
     /**
-     * Disables autocommit
+     * Disables autocommit.
      *
      * @return bool
      */
     public function disableAutocommit();
 
     /**
-     * Enables autocommit
+     * Enables autocommit.
      *
      * @return bool
      */
     public function enableAutocommit();
 
     /**
-     * Checks if the autocommit is enabled
+     * Checks if the autocommit is enabled.
      *
      * @return bool
      */
@@ -45,5 +44,4 @@ interface TransactionalManager
      * @return bool
      */
     public function rollback();
-
 }

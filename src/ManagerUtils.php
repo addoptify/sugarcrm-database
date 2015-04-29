@@ -7,21 +7,20 @@ namespace DRI\SugarCRM\Component\Database;
  */
 class ManagerUtils
 {
-
     /**
      * @param string $userMessage
      * @param string $message
-     * @param bool $dieOnError
+     * @param bool   $dieOnError
      *
      * @throws Exception
      */
     public static function registerError($userMessage, $message, $dieOnError = false)
     {
-        if(empty($message)) {
-            $message = "Database error";
+        if (empty($message)) {
+            $message = 'Database error';
         }
 
-        if(!empty($userMessage)) {
+        if (!empty($userMessage)) {
             $message = "$userMessage: $message";
         }
 
@@ -31,5 +30,4 @@ class ManagerUtils
 
         throw $exception;
     }
-
 }

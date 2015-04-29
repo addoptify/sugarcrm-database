@@ -2,13 +2,13 @@
 
 namespace DRI\SugarCRM\Component\Database\MySQL;
 
-require_once "include/database/MysqliManager.php";
+require_once 'include/database/MysqliManager.php';
 
 use DRI\SugarCRM\Component\Database\ManagerUtils;
 use DRI\SugarCRM\Component\Database\TransactionalManager;
 
 /**
- * Enables transaction support for MySQL databases
+ * Enables transaction support for MySQL databases.
  *
  * Improves error handling by trowing an exception as soon as a database error occur
  *
@@ -16,11 +16,10 @@ use DRI\SugarCRM\Component\Database\TransactionalManager;
  */
 class Manager extends \MysqliManager implements TransactionalManager
 {
-
     /**
      * @param string $userMessage
      * @param string $message
-     * @param bool $dieOnError
+     * @param bool   $dieOnError
      *
      * @see ManagerUtils::registerError
      */
@@ -35,7 +34,8 @@ class Manager extends \MysqliManager implements TransactionalManager
     public function beginTransaction()
     {
         if ($this->database) {
-            $success = $this->query("START TRANSACTION");
+            $success = $this->query('START TRANSACTION');
+
             return $success;
         }
 
@@ -52,6 +52,7 @@ class Manager extends \MysqliManager implements TransactionalManager
         if ($this->database) {
             $enabled = $enabled ? 1 : 0;
             $success = $this->query("SET AUTOCOMMIT = $enabled");
+
             return $success;
         }
 
@@ -68,7 +69,8 @@ class Manager extends \MysqliManager implements TransactionalManager
     public function commit()
     {
         if ($this->database) {
-            $success = $this->query("COMMIT");
+            $success = $this->query('COMMIT');
+
             return $success;
         }
 
@@ -85,7 +87,8 @@ class Manager extends \MysqliManager implements TransactionalManager
     public function rollback()
     {
         if ($this->database) {
-            $success = $this->query("ROLLBACK");
+            $success = $this->query('ROLLBACK');
+
             return $success;
         }
 
@@ -120,13 +123,13 @@ class Manager extends \MysqliManager implements TransactionalManager
     public function isAutocommitEnabled()
     {
         if ($this->database) {
-            $result = $this->query("SELECT @@AUTOCOMMIT FROM DUAL;");
+            $result = $this->query('SELECT @@AUTOCOMMIT FROM DUAL;');
             $row = $this->fetchByAssoc($result);
             $success = isset($row['@@AUTOCOMMIT']) ? $row['@@AUTOCOMMIT'] : false;
-            return $success == "1";
+
+            return $success == '1';
         }
 
         return false;
     }
-
 }

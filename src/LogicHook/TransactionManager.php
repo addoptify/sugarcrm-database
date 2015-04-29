@@ -3,7 +3,7 @@
 namespace DRI\SugarCRM\Component\Database\LogicHook;
 
 use DRI\SugarCRM\Component\Database\Exception;
-use \DRI\SugarCRM\Component\Database\TransactionalManager;
+use DRI\SugarCRM\Component\Database\TransactionalManager;
 
 /**
  * Experimenal logic hook, use with care!
@@ -14,7 +14,6 @@ use \DRI\SugarCRM\Component\Database\TransactionalManager;
  */
 class TransactionManager
 {
-
     /**
      * @var bool
      */
@@ -28,7 +27,7 @@ class TransactionManager
     /**
      * @var array
      */
-    private static $exceptions = array ();
+    private static $exceptions = array();
 
     /**
      * @var TransactionalManager
@@ -50,7 +49,7 @@ class TransactionManager
     }
 
     /**
-     * Checks if the database handles transactions
+     * Checks if the database handles transactions.
      *
      * @return bool
      */
@@ -70,7 +69,7 @@ class TransactionManager
      * http://support.sugarcrm.com/02_Documentation/04_Sugar_Developer/Sugar_Developer_Guide_7.2/60_Logic_Hooks/60_API_Hooks/before_api_call/
      *
      * @param string $event
-     * @param array $arguments
+     * @param array  $arguments
      */
     public function beforeApiCall($event, array $arguments)
     {
@@ -82,7 +81,7 @@ class TransactionManager
         // Does the db handles transaction?
         if ($this->checkTransactionSupport()) {
             if ($this->db->isAutocommitEnabled()) {
-                $this->log->info(__METHOD__ . ":: Autocommit is on, turning off");
+                $this->log->info(__METHOD__.':: Autocommit is on, turning off');
                 $this->db->disableAutocommit();
             }
         }
@@ -100,7 +99,7 @@ class TransactionManager
      * Hook Type: handle_exception
      * http://support.sugarcrm.com/02_Documentation/04_Sugar_Developer/Sugar_Developer_Guide_7.1/60_Logic_Hooks/20_Module_Hooks/handle_exception2/
      *
-     * @param string $event
+     * @param string     $event
      * @param \Exception $exception
      */
     public function handleException($event, $exception)
@@ -121,7 +120,7 @@ class TransactionManager
      * Hook Type: before_respond
      * http://support.sugarcrm.com/02_Documentation/04_Sugar_Developer/Sugar_Developer_Guide_7.2/60_Logic_Hooks/60_API_Hooks/before_respond/
      *
-     * @param string $event
+     * @param string        $event
      * @param \RestResponse $response
      */
     public function beforeRespond($event, \RestResponse $response)
@@ -133,10 +132,10 @@ class TransactionManager
             if ($this->checkTransactionSupport()) {
                 // Are the request successful or have an error occured?
                 if (self::$success) {
-                    $this->log->info(__METHOD__ . " :: Committing transaction to db");
+                    $this->log->info(__METHOD__.' :: Committing transaction to db');
                     $this->db->commit();
                 } else {
-                    $this->log->fatal(__METHOD__ . " :: Error occurred, rolling back");
+                    $this->log->fatal(__METHOD__.' :: Error occurred, rolling back');
 
                     foreach (self::$exceptions as $i => $e) {
                         unset(self::$exceptions[$i]);
@@ -148,5 +147,4 @@ class TransactionManager
             }
         }
     }
-
 }

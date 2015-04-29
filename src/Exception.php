@@ -7,5 +7,4 @@ namespace DRI\SugarCRM\Component\Database;
  */
 class Exception extends \SugarException
 {
-
 }
