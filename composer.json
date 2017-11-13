@@ -1,9 +1,9 @@
 {
-    "name": "dri-nordic/sugarcrm-database",
+    "name": "addoptify/sugarcrm-database",
     "authors": [
         {
             "name": "Emil Kilhage",
-            "email": "emil.kilhage@dri-nordic.com"
+            "email": "emilkilhage@gmail.com"
         }
     ],
     "autoload": {
@@ -11,11 +11,5 @@
     },
     "require": {
 
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url":  "https://packages.dricrm.com/"
-        }
-    ]
+    }
 }
