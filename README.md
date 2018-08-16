@@ -3,7 +3,7 @@ Info
 
 Enhanced database management for SugarCRM >=7.5
 
-Author: Emil Kilhage <emil.kilhage@dri-nordic.com>
+Author: Emil Kilhage <emilkilhage@gmail.com>
 
     * Adds support for transactions for MySQL InnoDB
     * Throws errors instead of triggering a die(); upon database errors
